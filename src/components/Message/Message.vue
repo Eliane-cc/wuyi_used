@@ -10,11 +10,9 @@
 </template>
 
 <script>
-  import IconSvg from '../IconSvg'
   export default {
     name: "Message",
     components: {
-       IconSvg
     },
     data(){
       return {
