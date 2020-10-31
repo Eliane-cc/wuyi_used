@@ -1,24 +1,25 @@
 <template>
-<!--  <div id="app">-->
-<!--    -->
-<!--  </div>-->
   <div>
-    <button @click="btn">按钮</button>
+    <!-- 导航栏   -->
+    <navigation></navigation>
+    <!-- 页面内容   -->
+    <router-view></router-view>
+<!--    <button @click="btn">按钮</button>-->
   </div>
-
 </template>
 
 <script>
+import Navigation from "./components/Index/Navigation";
 
 export default {
   name: 'App',
   components: {
+    Navigation,
   },
   methods: {
-    btn(){
-      console.log("我是按钮",this.$message)
-      this.$message.show("你好啊,我是提示", 'icon-check-circle-fill', '#42B782');
-    },
+    // btn(){
+    //   this.$message.show("你好", 'icon-check-circle-fill', '#42B782');
+    // }
   }
 }
 </script>
