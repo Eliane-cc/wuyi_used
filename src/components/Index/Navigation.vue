@@ -17,12 +17,12 @@
         <div class="nav_item nav_icon">
           <icon-svg icon-class="icon-search"/>
         </div>
-        <div class="nav_item nav_icon">
+        <div class="nav_item nav_icon" v-bind="showMore">
           <icon-svg icon-class="icon-shop"/>
         </div>
       </div>
     </div>
-    <more class="aside"></more>
+    <more class="aside" v-if="isShowMore"></more>
   </div>
 
 </template>
@@ -38,11 +38,13 @@
     },
     data(){
       return{
-
+        isShowMore: true
       }
     },
     methods: {
-
+      showMore(){
+        this.isShowMore = true
+      }
     }
   }
 </script>
