@@ -17,8 +17,8 @@
         <div class="nav_item nav_icon">
           <icon-svg icon-class="icon-search"/>
         </div>
-        <div class="nav_item nav_icon" v-bind="showMore">
-          <icon-svg icon-class="icon-shop"/>
+        <div class="nav_item nav_icon" @click="showMore">
+          <icon-svg icon-class="icon-shop" :class="{icon_selected: isShowMore}"/>
         </div>
       </div>
     </div>
@@ -38,12 +38,12 @@
     },
     data(){
       return{
-        isShowMore: true
+        isShowMore: false
       }
     },
     methods: {
       showMore(){
-        this.isShowMore = true
+        this.isShowMore = !this.isShowMore
       }
     }
   }
@@ -71,5 +71,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+  }
+  .icon_selected{
+    color: #349B5E;
   }
 </style>
