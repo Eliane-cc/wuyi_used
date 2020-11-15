@@ -1,16 +1,22 @@
 <template>
-  <div class="index">我是首页</div>
+  <div class="contain">
+    <carousel></carousel>
+  </div>
 </template>
 
 <script>
+  import Carousel from "@/components/Index/Carousel";
   export default {
-    name: "Index"
+    name: "Index",
+    components: {
+      Carousel
+    }
   }
 </script>
 
 <style scoped>
-  .index{
-    position: absolute;
+  .contain{
+
 
   }
 </style>

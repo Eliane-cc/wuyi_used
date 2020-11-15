@@ -47,6 +47,7 @@
     border: 1px solid #D2D2D7;
     padding: 20px;
     border-radius: 15px;
+    background-color: white;
   }
   .more_list{
     display: flex;

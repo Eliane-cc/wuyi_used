@@ -75,6 +75,7 @@
   }
   .nav{
     width: 100%;
+    border-top: 3px solid rgb(79,192,141);
   }
   .nav_search{
     background-color: #ffffff;
@@ -93,7 +94,7 @@
     margin: auto;
   }
   .nav_item{
-    padding: 14px 10px;
+    padding: 17px;
     margin-right: 5px;
     cursor: pointer;
   }

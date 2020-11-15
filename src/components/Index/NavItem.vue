@@ -33,11 +33,11 @@
 <style scoped>
   .nav_list:hover{
     color: #349B5E;
-    border-bottom: 4px solid #349B5E;
+    /*border-bottom: 4px solid #349B5E;*/
   }
   .active{
     color: #349B5E;
-    border-bottom: 4px solid #349B5E;
+    /*border-bottom: 4px solid #349B5E;*/
   }
 
 </style>
