@@ -143,6 +143,7 @@
     text-align: center;
     background-color: #ffffff;
     border: 1px solid #ffffff;
+    cursor: pointer;
   }
   .item:hover{
     border: 1px solid #349B5E;
@@ -161,6 +162,10 @@
     text-align: center;
     margin: auto;
     margin-top: 15px;
+  }
+  .shop_title:hover{
+    color: #45586C;
+    font-weight: 500;
   }
   .shop_price{
     color: #349B5E;
