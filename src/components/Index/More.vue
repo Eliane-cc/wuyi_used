@@ -43,11 +43,12 @@
   .more_contain{
     position: absolute;
     width: 260px;
-    margin-right: 18px;
+    margin-right: 14px;
     border: 1px solid #D2D2D7;
     padding: 20px;
     border-radius: 15px;
-    background-color: white;
+    background-color: #ffffff;
+    z-index: 100;
   }
   .more_list{
     display: flex;

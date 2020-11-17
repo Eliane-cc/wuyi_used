@@ -170,5 +170,6 @@
     align-items: center;
     transform-origin: center;
     transform: rotateY(calc(45deg * var(--i))) translateZ(420px);
+    z-index: -1;
   }
 </style>
