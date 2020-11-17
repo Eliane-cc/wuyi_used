@@ -12,7 +12,7 @@
     </div>
     <div class="more_contain">
       <div class="guess_more">
-        <div class="more">更多</div>
+        更多
         <icon-svg icon-class="icon-right-circle" class="icon_svg" icon-size="19px"></icon-svg>
       </div>
     </div>
@@ -186,16 +186,14 @@
     align-items: center;
     width: 80px;
     cursor: pointer;
-  }
-  .more{
-    margin-right: 8px;
     color: #555555;
     font-size: 15px;
   }
-  .more:hover{
+  .guess_more:hover{
     color: #349B5E;
   }
   .icon_svg{
     color: #349B5E;
+    margin-left: 8px;
   }
 </style>
