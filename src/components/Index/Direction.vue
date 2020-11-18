@@ -107,8 +107,8 @@
 <style scoped>
   .direction{
     background-color: #ffffff;
-    position: absolute;
-    top: 2210px;
+    position: relative;
+    top: 810px;
     width: 100%;
     display: flex;
     flex-direction: row;

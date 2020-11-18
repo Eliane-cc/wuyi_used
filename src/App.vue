@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import Navigation from "./components/Index/Navigation";
+import Navigation from "@/components/Index/Navigation";
 
 export default {
   name: 'App',
   components: {
-    Navigation,
+    Navigation
   },
   methods: {
     // btn(){

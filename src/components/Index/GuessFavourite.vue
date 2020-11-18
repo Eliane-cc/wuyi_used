@@ -11,12 +11,11 @@
       </div>
     </div>
     <div class="more_contain">
-      <div class="guess_more">
+      <div class="guess_more" @click="toMore">
         更多
         <icon-svg icon-class="icon-right-circle" class="icon_svg" icon-size="19px"></icon-svg>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -114,6 +113,11 @@
             ]
           }
         ]
+      }
+    },
+    methods: {
+      toMore(){
+        this.$router.replace('/mall')
       }
     }
   }
