@@ -1,22 +1,25 @@
 <template>
-  <div class="guess_contain">
-    <div class="guess_title">猜你喜欢</div>
-    <div class="guess_row" v-for="(guessRow,guessIndex) in guessList">
-      <div class="item" v-for="(item,index) in guessRow.row">
-        <div class="img_contain">
-          <img :src="item.sourse" class="guess_item_img">
+  <div class="contain">
+    <div class="guess_contain">
+      <div class="guess_title">猜你喜欢</div>
+      <div class="guess_row" v-for="(guessRow,guessIndex) in guessList">
+        <div class="item" v-for="(item,index) in guessRow.row">
+          <div class="img_contain">
+            <img :src="item.sourse" class="guess_item_img">
+          </div>
+          <div class="shop_title">{{item.title}}</div>
+          <div class="shop_price">{{item.price}}</div>
         </div>
-        <div class="shop_title">{{item.title}}</div>
-        <div class="shop_price">{{item.price}}</div>
       </div>
-    </div>
-    <div class="more_contain">
-      <div class="guess_more" @click="toMore">
-        更多
-        <icon-svg icon-class="icon-right-circle" class="icon_svg" icon-size="19px"></icon-svg>
+      <div class="more_contain">
+        <div class="guess_more" @click="toMore">
+          更多
+          <icon-svg icon-class="icon-right-circle" class="icon_svg" icon-size="19px"></icon-svg>
+        </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -124,11 +127,19 @@
 </script>
 
 <style scoped>
-  .guess_contain{
+  .contain{
     position: relative;
+    box-sizing: border-box;
+    width: 100%;
     top: 800px;
     padding: 20px;
     background-color: #efefef;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .guess_contain{
+    width: 1200px;
   }
   .guess_title{
     font-weight: 500;

@@ -1,6 +1,37 @@
 <template>
   <div>
     <div class="carousel_contain">
+      <!--  轮播图    -->
+      <div class="contain">
+        <div class="img_contain">
+          <div class="img_row">
+            <div class="img_item" :style="{'--i': imgList[0]}">
+              <img src="@/assets/img/pic8.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[1]}">
+              <img src="@/assets/img/pic7.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[2]}">
+              <img src="@/assets/img/pic6.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[3]}">
+              <img src="@/assets/img/pic5.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[4]}">
+              <img src="@/assets/img/pic4.jpg" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[5]}">
+              <img src="@/assets/img/pic3.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[6]}">
+              <img src="@/assets/img/pic2.png" class="img">
+            </div>
+            <div class="img_item" :style="{'--i': imgList[7]}">
+              <img src="@/assets/img/pic1.png" class="img current">
+            </div>
+          </div>
+        </div>
+      </div>
       <!--  轮播图聚焦框    -->
       <div class="carousel_list">
         <div class="row">
@@ -19,37 +50,6 @@
           <div class="column bottom_left"></div>
           <div class="column bottom_right"></div>
         </div>
-      </div>
-
-      <!--  轮播图    -->
-      <div class="img_contain">
-        <div class="img_row">
-          <div class="img_item" :style="{'--i': imgList[0]}">
-            <img src="@/assets/img/pic8.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[1]}">
-            <img src="@/assets/img/pic7.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[2]}">
-            <img src="@/assets/img/pic6.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[3]}">
-            <img src="@/assets/img/pic5.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[4]}">
-            <img src="@/assets/img/pic4.jpg" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[5]}">
-            <img src="@/assets/img/pic3.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[6]}">
-            <img src="@/assets/img/pic2.png" class="img">
-          </div>
-          <div class="img_item" :style="{'--i': imgList[7]}">
-            <img src="@/assets/img/pic1.png" class="img current">
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -133,22 +133,30 @@
     border-bottom: 2px solid #349B5E;
     border-left: 2px solid #349B5E;
   }
-  .img_contain{
+  .contain{
     position: absolute;
+    width: 100%;
+    top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 100;
+  }
+  .img_contain{
     width: 1080px;
     height: 400px;
-    top: 50px;
-    left: 100px;
   }
   .icon_svg{
+    position: absolute;
     color: rgba(79,192,141,0.7);
     cursor: pointer;
+    z-index: 1000;
   }
   .icon_svg:hover{
     color: #349B5E;
   }
   .icon_right{
-    padding-right: 10px;
+    padding-right: 28px;
   }
   .img{
     width: 200px;

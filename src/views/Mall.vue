@@ -36,17 +36,17 @@
         </div>
       </div>
     </div>
-    <div>
-    <div class="mall_contain">
-
-    </div>
-    </div>
+    <product-list></product-list>
   </div>
 </template>
 
 <script>
+  import ProductList from "../components/Mall/ProductList";
   export default {
     name: "Mall",
+    components: {
+      ProductList
+    },
     data(){
       return{
         sortList: [
@@ -258,9 +258,5 @@
   }
   .select:hover{
     color: #ffffff;
-  }
-  .mall_contain{
-    background-color: red;
-    width: 1200px;
   }
 </style>
