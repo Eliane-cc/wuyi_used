@@ -43,8 +43,13 @@
 
 <style scoped>
   .message_row{
-    margin-top: 20px;
+    position: absolute;
+    top: 0px;
+    left: 550px;
+    margin-top: 35px;
     margin-bottom: 12px;
+    z-index: 1000;
+    background-color: #ffffff;
   }
   .message_contain{
     display: inline-block;
@@ -57,7 +62,7 @@
     flex-direction: row;
     align-items: center;
     align-content: center;
-    font-size: 14px;
+    font-size: 13px;
     color: #333333;
   }
   .icon_svg{
@@ -65,17 +70,17 @@
   }
   @keyframes fade-in {
     0% {margin-top: 0px;}
-    25% {margin-top: 5px;}
-    50% {margin-top: 10px;}
-    75% {margin-top: 15px;}
-    100% {margin-top: 20px;}
+    25% {margin-top: 8px;}
+    50% {margin-top: 13px;}
+    75% {margin-top: 18px;}
+    100% {margin-top: 25px;}
   }
   @-webkit-keyframes fade-in {/*针对webkit内核*/
     0% {margin-top: 0px;}
-    25% {margin-top: 5px;}
-    50% {margin-top: 10px;}
-    75% {margin-top: 15px;}
-    100% {margin-top: 20px;}
+    25% {margin-top: 8px;}
+    50% {margin-top: 13px;}
+    75% {margin-top: 18px;}
+    100% {margin-top: 25px;}
   }
   .display_animation{
     animation: fade-in;
