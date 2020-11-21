@@ -37,15 +37,18 @@
       </div>
     </div>
     <product-list></product-list>
+    <web-footer class="footer"></web-footer>
   </div>
 </template>
 
 <script>
   import ProductList from "../components/Mall/ProductList";
+  import WebFooter from "../components/WebFooter";
   export default {
     name: "Mall",
     components: {
-      ProductList
+      ProductList,
+      WebFooter
     },
     data(){
       return{
@@ -177,6 +180,7 @@
     margin-top: 20px;
     border: 1px solid #efefef;
     padding: 10px;
+    box-sizing: border-box;
   }
   .row{
     display: flex;
@@ -211,7 +215,6 @@
     border-top: none;
   }
   .price_range{
-    color: #444444;
     font-size: 14px;
     color: #999999;
   }
@@ -258,5 +261,8 @@
   }
   .select:hover{
     color: #ffffff;
+  }
+  .footer{
+    /*top: 400px;*/
   }
 </style>
