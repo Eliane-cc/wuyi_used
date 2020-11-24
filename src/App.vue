@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航栏   -->
-    <navigation></navigation>
+    <navigation v-if="!$route.meta.showNav"></navigation>
     <!-- 页面内容   -->
     <router-view></router-view>
 <!--    <button @click="btn">按钮</button>-->

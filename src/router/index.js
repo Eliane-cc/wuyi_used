@@ -4,6 +4,8 @@ import Index from '../views/Index';
 import Mall from '../views/Mall';
 import Welfare from '../views/Welfare';
 import About from '../views/About';
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 //1、安装插件
 Vue.use(VueRouter)
@@ -29,6 +31,20 @@ const routes = [
   {
     path: '/about',
     component:  About
+  },
+  {
+    path: '/login',
+    component:  Login,
+    meta:{
+      showNav: true
+    }
+  },
+  {
+    path: '/register',
+    component:  Register,
+    meta:{
+      showNav: true
+    }
   },
 ]
 

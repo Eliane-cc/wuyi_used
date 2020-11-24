@@ -1,9 +1,11 @@
 <template>
-  <div class="message_row display_animation" v-show="isShow">
-    <div class="message_contain">
-      <div class="message_box">
-        <icon-svg :icon-class="icon" class="icon_svg" :style="{color: iconColor}"/>
-        <div>{{message}}</div>
+  <div class="message">
+    <div class="message_row display_animation" v-show="isShow">
+      <div class="message_contain">
+        <div class="message_box">
+          <icon-svg :icon-class="icon" class="icon_svg" :style="{color: iconColor}"/>
+          <div>{{message}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,20 +44,24 @@
 </script>
 
 <style scoped>
-  .message_row{
+  .message{
+    width: 100%;
+    text-align: center;
     position: absolute;
     top: 0px;
-    left: 550px;
+  }
+  .message_row{
     margin-top: 35px;
     margin-bottom: 12px;
     z-index: 1000;
-    background-color: #ffffff;
+    border-radius: 6px;
   }
   .message_contain{
     display: inline-block;
     padding: 10px 14px;
     border-radius: 5px;
     box-shadow: 3px 2px 10px #cccccc;
+    background-color: #ffffff;
   }
   .message_box{
     display: flex;

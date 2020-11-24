@@ -35,7 +35,6 @@
     data(){
       return{
         total: parseInt(50/16),
-
       }
     },
     methods:{

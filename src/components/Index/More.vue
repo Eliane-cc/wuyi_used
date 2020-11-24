@@ -6,7 +6,7 @@
       </div>
       <div class="more_info">你的购物车是空的哦</div>
       <div class="more_con" v-for="(item,index) in list">
-        <div class="more_list">
+        <div class="more_list" @click="nav(item.path)">
           <icon-svg :icon-class="item.icon" class="icon_svg" :style="{color: iconColor}"></icon-svg>
           <div>{{item.listText}}</div>
         </div>
@@ -23,17 +23,28 @@
         iconColor: '#40A072',
         list: [{
           icon: 'icon-caigou',
-          listText: '购物车'
+          listText: '购物车',
+          path: '/login'
         },{
           icon: 'icon-calendar',
-          listText: '收藏'
+          listText: '收藏',
+          path: '/login'
         },{
           icon: 'icon-home-fill',
-          listText: '账户'
+          listText: '个人中心',
+          path: '/register'
         },{
           icon: 'icon-user',
-          listText: '登录'
+          listText: '登录',
+          path: '/login'
         }]
+      }
+    },
+    methods: {
+      nav(path){
+        if (path){
+          this.$router.push(path)
+        }
       }
     }
   }
@@ -48,7 +59,7 @@
     padding: 20px;
     border-radius: 15px;
     background-color: #ffffff;
-    z-index: 100;
+    z-index: 2000;
   }
   .more_list{
     display: flex;
