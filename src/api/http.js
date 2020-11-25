@@ -1,7 +1,7 @@
 import axios from 'axios';
 import router from "../router";
 axios.defaults.timeout = 5000;       //超时时间5s
-axios.defaults.withCredentials = true;     //允许跨域
+// axios.defaults.withCredentials = true;     //允许跨域
 
 //Content-Type响应头
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
