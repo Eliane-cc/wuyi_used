@@ -28,12 +28,13 @@
 </template>
 
 <script>
+  import {getLoginStatus} from '../api/index'
   export default {
     name: "Login.vue",
     data(){
       return{
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123'
       }
     },
     methods: {
@@ -42,7 +43,17 @@
       },
       login(){
         if(this.username && this.password){
-
+          let params = new URLSearchParams();
+          params.append("username", this.username);
+          params.append("password", this.password);
+          getLoginStatus(params)
+            .then((res) => {
+              if (res.code == 1){
+                this.$message.show("登录成功！", 'icon-close-circle-fill', '#F5222D');
+              }else{
+                this.$message.show("登录失败！", 'icon-close-circle-fill', '#F5222D');
+              }
+            })
         }else {
           this.$message.show("账号或密码不能为空，请重新输入！", 'icon-close-circle-fill', '#F5222D');
         }

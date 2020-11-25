@@ -7,5 +7,16 @@ module.exports = {
         'views': '@/views'
       }
     }
+  },
+  devServer: {
+    proxy: {
+      '/cosumer': {
+        target: 'http://localhost:8888',
+        changeOrigin: true,
+        pathRewrite: {
+          '/cosumer': ''
+        }
+      }
+    }
   }
 }
