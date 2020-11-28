@@ -33,8 +33,8 @@
     name: "Login.vue",
     data(){
       return{
-        username: 'admin',
-        password: '123'
+        username: '',
+        password: ''
       }
     },
     methods: {
@@ -46,6 +46,7 @@
           let params = new URLSearchParams();
           params.append("username", this.username);
           params.append("password", this.password);
+          console.log("params",params)
           getLoginStatus(params)
             .then((res) => {
               if (res.code == 1){

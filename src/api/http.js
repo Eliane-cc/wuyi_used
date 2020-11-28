@@ -9,35 +9,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 //基础Url
 axios.defaults.baseURL = "http://localhost:8888";
 
-// //响应拦截器
-// axios.interceptors.response.use(
-//   response => {
-//     //如果response里面的status是200，说明访问到接口了，否则错误
-//     if (response.status == 200){
-//       return Promise.resolve(response);
-//     }else {
-//       return Promise.reject(response);
-//     }
-//   },
-//   error => {
-//     if (error.response.status){
-//       switch (error.response.status) {
-//         case 401:       //未登录
-//           router.replace({
-//             path: '/login',
-//             query: {
-//               redirect: router.currentRoute.fullPath
-//             }
-//           });
-//           break;
-//         case 404:       //没找到
-//           break;
-//       }
-//       return Promise.reject(error.response);
-//     }
-//   }
-// );
-
 /*
 * 封装get方法
 * */
