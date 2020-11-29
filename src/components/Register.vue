@@ -13,7 +13,7 @@
         </div>
         <div class="input">
           <div  class="input_title">确认密码:</div>
-          <input type="password" class="input1" v-model="pwd2">
+          <input type="password" class="input1" v-model="pwd2"> 
         </div>
         <div class="btn_row">
           <button @click="cancel">取消</button>
