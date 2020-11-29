@@ -30,6 +30,8 @@
 </template>
 
 <script>
+  import {getRegisterStatus} from '../api/index'
+
   export default {
     name: "Register.vue",
     data(){
@@ -45,13 +47,36 @@
         this.pwd1 = ''
         this.pwd2 = ''
       },
+      //注册用户
       register(){
-        if (this.username){
+        if (this.username && this.pwd1 && this.pwd2){
           if (this.pwd1 && this.pwd2 && this.pwd1 != this.pwd2){
             this.$message.show("对不起，您输入的两次密码不一致！", 'icon-close-circle-fill', '#F5222D');
+          }else{
+            let params = new URLSearchParams();
+            params.append("username", this.username);
+            params.append("password", this.pwd1);
+            console.log("params",params)
+            getRegisterStatus(params)
+              .then((res) => {
+                if (res.code == 1){
+                  //注册成功
+                  this.$message.show(res.msg, 'icon-check-circle-fill', '#52C41A');
+                  this.$router.back('/login')
+                }else if (res.code == 0){
+                  //用户已注册
+                  this.$message.show(res.msg, 'icon-warning-circle-fill', '#FAAD14');
+                  this.username = ''
+                  this.pwd1 = ''
+                  this.pwd2 = ''
+                }else{
+                  //注册失败
+                  this.$message.show(res.msg, 'icon-close-circle-fill', '#F5222D');
+                }
+              })
           }
         }else {
-          this.$message.show("请输入用户名！", 'icon-warning-circle-fill', '#FAAD14');
+          this.$message.show("用户名和密码不能为空！", 'icon-warning-circle-fill', '#FAAD14');
         }
       },
       nav_login(){

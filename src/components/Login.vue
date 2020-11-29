@@ -13,7 +13,7 @@
           </span>
           <span class="user">
              <icon-svg icon-class="icon-unlock" class="icon_svg" icon-size="24px"></icon-svg>
-            <input type="text" id="password" name="user_password"  class="input2" v-model="password"/>
+            <input type="password" id="password" name="user_password"  class="input2" v-model="password"/>
           </span>
         </div>
 
@@ -50,13 +50,16 @@
           getLoginStatus(params)
             .then((res) => {
               if (res.code == 1){
-                this.$message.show("登录成功！", 'icon-close-circle-fill', '#F5222D');
+                this.$message.show("登录成功！", 'icon-check-circle-fill', '#52C41A');
+                this.$router.replace('/index')
               }else{
-                this.$message.show("登录失败！", 'icon-close-circle-fill', '#F5222D');
+                this.$message.show("账号或密码错误，请重新输入！", 'icon-warning-circle-fill', '#FAAD14');
+                this.username = ''
+                this.password = ''
               }
             })
         }else {
-          this.$message.show("账号或密码不能为空，请重新输入！", 'icon-close-circle-fill', '#F5222D');
+          this.$message.show("账号或密码不能为空，请重新输入！", 'icon-warning-circle-fill', '#FAAD14');
         }
       }
     }
