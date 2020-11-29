@@ -9,7 +9,7 @@
         <div class="div2">
           <span class="user">
              <icon-svg icon-class="icon-user1" class="icon_svg" icon-size="24px"></icon-svg>
-            <input type="text" class="input1" v-model="username"/>
+            <input type="text" class="input1" v-model="username"/> 
           </span>
           <span class="user">
              <icon-svg icon-class="icon-unlock" class="icon_svg" icon-size="24px"></icon-svg>
