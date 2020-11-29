@@ -24,15 +24,15 @@
         list: [{
           icon: 'icon-caigou',
           listText: '购物车',
-          path: '/login'
+          path: '/cart'
         },{
           icon: 'icon-calendar',
-          listText: '收藏',
-          path: '/login'
+          listText: '我要发布',
+          path: '/edit'
         },{
           icon: 'icon-home-fill',
-          listText: '个人中心',
-          path: '/register'
+          listText: '账户信息',
+          path: '/accountinfo'
         },{
           icon: 'icon-user',
           listText: '登录',
