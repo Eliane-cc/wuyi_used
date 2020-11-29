@@ -4,7 +4,7 @@
       <img src="@/assets/img/login.png" alt="" class="img1">
     </div>
     <div class="form_login">
-      <form>
+      <form> 
         <div class="login_title">邑大二手市场 </div>
         <div class="div2">
           <span class="user">
