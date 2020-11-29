@@ -22,10 +22,11 @@
         <div class="footer">
           已有帐号，去
           <div class="nav_login" @click="nav_login">登录</div>
+
         </div>
       </form>
     </div>
-  </div>
+  </div> 
 
 </template>
 
