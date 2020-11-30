@@ -81,7 +81,7 @@
         }
       },
       nav_login(){
-        this.$router.back('/login')
+        this.$router.push('/login')
       }
     }
   }
