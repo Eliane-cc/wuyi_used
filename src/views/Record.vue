@@ -6,7 +6,7 @@
            Record
         </div>
         <div class="content">
-            <div class="my_pubilshed">
+            <div class="my_pubilshed" @click="go()">
                 <img src="@/assets/img/images/goods5.jpg" alt="">
                 <span class="text1">A5折线本</span>
                 <span class="span1">￥7</span>
@@ -14,7 +14,7 @@
                 <span class="span3">2020/11/29</span>
 
             </div>
-            <div class="my_pubilshed">
+            <div class="my_pubilshed" @click="go()">
                 <img src="@/assets/img/images/goods5.jpg" alt="">
                 <span class="text1">A5折线本</span>
                 <span class="span1">￥7</span>
@@ -23,7 +23,7 @@
 
 
             </div>
-            <div class="my_pubilshed">
+            <div class="my_pubilshed" @click="go()">
                 <img src="@/assets/img/images/goods5.jpg" alt="">
                 <span class="text1">A5折线本</span>
                 <span class="span1">￥7</span>
@@ -31,7 +31,7 @@
                 <span class="span3">2020/11/29</span>
 
             </div>
-            <div class="my_pubilshed">
+            <div class="my_pubilshed" @click="go()">
                 <img src="@/assets/img/images/goods5.jpg" alt="">
                 <span class="text1">A5折线本</span>
                 <span class="span1">￥7</span>
@@ -51,6 +51,12 @@
         name: "Record",
         components:{
             WebFooter
+        },
+        methods: {
+            go(){
+                this.$router.push('/commodity');
+            }
+
         }
 
     }
@@ -83,14 +89,24 @@
         float: left;
         margin-left: 30px;
         width: 200px;
-        height: 250px;
+        height: 280px;
         border: 1px dashed #BDBDBD;
+
+
     }
-    img{
-        width: 200px;
-        height: 180px;
+    .my_pubilshed:hover{
+        border: 1px solid #349B5E;
+
+    }
+    .my_pubilshed img{
+        width: 160px;
+        height: 160px;
+        padding: 20px;
         margin-bottom: 5px;
+        transition: all 1s;
     }
+
+
     .text1{
         padding-left: 8px;
         display: block;

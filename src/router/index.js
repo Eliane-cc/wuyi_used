@@ -14,6 +14,7 @@ import Collect_goods from "../views/Collect_goods";
 import Collect_salers from "../views/Collect_salers";
 import Afford from "../views/Afford";
 import Record from "../views/Record";
+import Commodity from "../views/Commodity";
 
 
 //1、安装插件
@@ -23,7 +24,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect:  '/cart'
+    redirect:  '/index'
   },
   {
     path: '/index',
@@ -73,6 +74,10 @@ const routes = [
   {
     path: '/afford',
     component:  Afford
+  },
+  {
+    path: '/commodity',
+    component:  Commodity
   },
 
   {
