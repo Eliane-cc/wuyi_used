@@ -7,7 +7,7 @@
       </div>
       <div class="productList_content">
         <div class="productList_row" >
-          <div v-for="(item,index) in shoppingList" :class="{productItem: true,marginRight: (index+1)%4!=0 ? true : false}" @click="go()">
+          <div v-for="(item,index) in shoppingList" :class="{productItem: true,marginRight: (index+1)%4!=0 ? true : false}">
             <div class="img">
               <img :src="item.source" class="product_img">
             </div>
@@ -169,10 +169,6 @@
       }
     },
     methods: {
-
-      go(){
-        this.$router.push('/commodity');
-      },
       changeHeader(header){
         if (this.currenHeader != header){
           this.currenHeader = header

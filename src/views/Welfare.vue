@@ -290,7 +290,10 @@
 </script>
 
 <style scoped>
-
+*{margin:0px; padding: 0px; }
+/*body{background: #4fc08d;}*/
+ul li { list-style-type: none;}
+a {text-decoration:none;color: #000;}
   #headNav
   {
     height: 70px;
