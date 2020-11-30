@@ -33,7 +33,7 @@
                 </div>
                 <div class="flex_row info">
                   <icon-svg icon-class="icon-shijian" class="icon_svg clock" icon-size="14px"/>
-                  <div class="end_text">{{item.releaseTime}}</div>
+                  <div class="end_text">{{item.releaseTime.substring(0,10)}}</div>
                 </div>
               </div>
             </div>
