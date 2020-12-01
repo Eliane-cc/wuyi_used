@@ -49,7 +49,7 @@
   import Pagination from "../Pagination";
   import {mixin} from "../../mixins";
   export default {
-    name: "ProductList.vue",
+    name: "ResultList.vue",
     components: {
       Pagination
     },
@@ -61,21 +61,11 @@
         currentPage: 1
       }
     },
-    created() {
-      this.getDataList()
-    },
     methods: {
       changeHeader(header){
         if (this.currenHeader != header){
           this.currenHeader = header
         }
-      },
-      getDataList(){
-        this.shoppingList = [];
-        getCommodityList().then(res => {
-          console.log("res",res)
-          this.shoppingList = res
-        })
       },
       collect(item,index){
         if (item.iscollect){
@@ -201,7 +191,7 @@
     color: #a7a7a7;
   }
   .product_remark{
-   margin-top: 20px;
+    margin-top: 20px;
   }
   .info{
     align-items: center;

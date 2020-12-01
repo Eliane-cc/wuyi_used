@@ -9,5 +9,8 @@ export const getRegisterStatus = (params) => post(`cosumer/register/status`,para
 //获取商品列表
 export const getCommodityList =() => get(`commodity/getList`);
 
-//筛选你商品列表
+//根据分类、新旧程度、价格筛选商品列表
 export const filterCommodity = (params) => get(`commodity/getList/filterSort`,params);
+
+//根据商品名筛选商品列表
+export const filterCommodityByName = (params) => get(`commodity/getList/filterName`,params);

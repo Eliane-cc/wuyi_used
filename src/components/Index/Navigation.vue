@@ -25,10 +25,10 @@
     <div class="nav nav_search" v-show="!isNav">
       <div class="nav_contain_search">
         <div class="nav_item_search">
-          <icon-svg icon-class="icon-search" class="search_icon" icon-size="25px"/>
+          <input type="text" placeholder="搜索" class="search_input" v-model="searchCommodity">
         </div>
-        <div class="nav_item_search">
-          <input type="text" placeholder="搜索" class="search_input">
+        <div class="nav_item_search" @click="searchName">
+          <icon-svg icon-class="icon-search" class="search_icon" icon-size="25px"/>
         </div>
         <div class="nav_item_search nav_item" @click="showSearch">
           <icon-svg icon-class="icon-close" class="search_icon" icon-size="25px"/>
@@ -43,6 +43,7 @@
 <script>
   import NavItem from "./NavItem";
   import More from "./More";
+  import {filterCommodityByName} from '../../api/index';
   export default {
     name: "Navigation",
     components: {
@@ -52,7 +53,8 @@
     data(){
       return{
         isShowMore: false,
-        isNav: true
+        isNav: true,
+        searchCommodity: ''
       }
     },
     methods: {
@@ -62,6 +64,19 @@
       showSearch(){
         this.isNav = !this.isNav
         this.isShowMore = false
+      },
+      searchName(){
+        let params = new URLSearchParams();
+        params.append("filterName", this.searchCommodity);
+        filterCommodityByName(params)
+        .then((res) => {
+          console.log("res",res)
+          if (res){
+            console.log()
+            this.$router.push({path:'/searchResult',query: {result: res}});
+          }
+
+        })
       }
     }
   }
@@ -113,9 +128,13 @@
     color: #349B5E;
   }
   .search_icon{
-    color: #349B5E;
+    color: #404040;
     width: 5em;
     height: 5em;
+    cursor: pointer;
+  }
+  .search_icon:hover{
+    color: #349B5E;
   }
   .search_input{
     display: block;

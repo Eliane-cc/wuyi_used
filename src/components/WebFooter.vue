@@ -32,10 +32,8 @@
             <a href="https://www.wyu.edu.cn/zsb/" target="_blank"  class="link">五邑大学招生网站</a>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
 </template>
 

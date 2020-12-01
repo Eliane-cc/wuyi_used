@@ -15,6 +15,7 @@ import Collect_salers from "../views/Collect_salers";
 import Afford from "../views/Afford";
 import Record from "../views/Record";
 import Commodity from "../views/Commodity";
+import SearchResult from "../views/SearchResult";
 
 
 //1、安装插件
@@ -79,7 +80,10 @@ const routes = [
     path: '/commodity',
     component:  Commodity
   },
-
+  {
+    path: '/searchResult',
+    component:  SearchResult
+  },
   {
     path: '/login',
     component:  Login,
