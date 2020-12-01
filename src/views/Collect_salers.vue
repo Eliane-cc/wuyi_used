@@ -6,7 +6,7 @@
                 <button class="btn1">卖家收藏</button>
         </div>
         <div class="div1" id="btn_2">
-            <div class="div2">
+            <div class="div2" @click='goTo_saler()'>
                 <img src="@/assets/img/images/me.jpg" alt="" class="img1">
                 <p class="username">Twinkle</p>
             </div>
@@ -43,6 +43,9 @@
                 //直接跳转
                 this.$router.push('/collect_goods');
             },
+            goTo_saler(){
+                this.$router.push('/accountinfo');
+            }
         }
     }
 </script>
@@ -119,21 +122,26 @@
     .div1{
         overflow: hidden;
         width: 980px;
-        margin: 40px auto;
+        margin: 20px auto;
 
     }
     .div2{
-        padding: 8px;
-        border: 1px solid #E6E6E6;
-        border-top: 2px solid #349B5E;
-        width: 150px;
-        height: 130px;
-        background: #FAFAFA;
-        float: left;
-        margin-right: 20px;
+         padding: 8px;
+         border: 1px solid #E6E6E6;
+         border-top: 2px solid #349B5E;
+         width: 150px;
+         height: 130px;
+         background: #FAFAFA;
+         float: left;
+         margin-right: 20px;
+         text-align: center;
+        transition: 1s;
+        margin-top: 40px;
+        margin-bottom: 20px;
+     }
 
-        text-align: center;
-
+    .div2:hover{
+     transform: scale(1.1);
     }
     .username{
         font-size: 15px;

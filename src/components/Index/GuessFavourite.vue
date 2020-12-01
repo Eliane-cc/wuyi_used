@@ -3,7 +3,7 @@
     <div class="guess_contain">
       <div class="guess_title">猜你喜欢</div>
       <div class="guess_row" v-for="(guessRow,guessIndex) in guessList">
-        <div class="item" v-for="(item,index) in guessRow.row">
+        <div class="item" v-for="(item,index) in guessRow.row" @click="go()">
           <div class="img_contain">
             <img :src="item.sourse" class="guess_item_img">
           </div>
@@ -119,6 +119,9 @@
       }
     },
     methods: {
+      go(){
+        this.$router.push('/commodity');
+      },
       toMore(){
         this.$router.replace('/mall')
       }

@@ -8,18 +8,15 @@
 
         </div>
         <div class="content">
-            <div class="recordgoods"><img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"><img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-            <div class="recordgoods"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"><img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"><img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+            <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
+
         </div>
 
 <div><web-footer></web-footer></div>
@@ -38,6 +35,10 @@
                 //直接跳转
                 this.$router.push('/collect_salers');
             },
+            go(){
+                this.$router.push('/commodity');
+            }
+
         }
     }
 </script>
@@ -50,6 +51,7 @@
         font-size: 25px;
         color: #EEEE00;
         font-family: Arial;
+
 
     }
     .header .btn1{
@@ -148,7 +150,6 @@
     }
 
     .recordgoods{
-
         width: 200px;
         height: 230px;
         background:#FAFAFA;
@@ -156,7 +157,14 @@
         border-top: 2px solid #349B5E;
         float: left;
         margin-left: 30px;
-        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+        transition: 1s;
+    }
+    .recordgoods:hover{
+       transform: scale(1.1);
+
+
     }
     .recordgoods img{
         display: inline-block;
@@ -178,12 +186,5 @@
         margin-top: 5px;
         color: red;
     }
-    .footer{
-        width: 100%;
-        height: 350px;
-        background:#F2F2F2;
-        margin-top: 50px;
-    }
-
 
 </style>
