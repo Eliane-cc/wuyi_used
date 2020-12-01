@@ -7,7 +7,7 @@
       </div>
       <div class="productList_content">
         <div class="productList_row" >
-          <div v-for="(item,index) in shoppingList" :class="{productItem: true,marginRight: (index+1)%4!=0 ? true : false}" @click="goTo()">
+          <div v-for="(item,index) in shoppingList" :class="{productItem: true,marginRight: (index+1)%4!=0 ? true : false}">
             <div class="img">
               <img :src="item.source" class="product_img">
             </div>
@@ -52,7 +52,6 @@
     components: {
       Pagination
     },
-
     data(){
       return{
         currenHeader: '综合排序',
@@ -185,10 +184,7 @@
           //收藏
           this.shoppingList[index].iscollect = !item.iscollect
         }
-      },
-      goTo(){
-        this.$router.push('/commodity');
-  },
+      }
     }
   }
 </script>

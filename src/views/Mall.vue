@@ -4,13 +4,13 @@
       <div class="row sort condition">
         <div class="title">类别：</div>
         <div class="item_row">
-          <div v-for="(item,index) in sortList" :class="{list: true, select: conditionList[0]==item.name ? true : false}" @click="selectSort(item.name)">{{item.name}}</div>
+          <div v-for="(item,index) in sortList" :class="{list: true, select: conditionList[0].text==item.name ? true : false}" @click="filterCommoditys(item.name,index-1,'sort')">{{item.name}}</div>
         </div>
       </div>
       <div class="row price">
         <div class="title">价格：</div>
         <div class="item_row">
-          <div v-for="(item,index) in priceList" :class="{list: true, select: conditionList[1]==item.name ? true : false}" @click="selectPrice(item.name)">{{item.name}}</div>
+          <div v-for="(item,index) in priceList" :class="{list: true, select: conditionList[1].text==item.name ? true : false}" @click="filterCommoditys(item.name,index-1,'price')">{{item.name}}</div>
         </div>
         <div class="price_range">
           <input type="number" class="input_price" v-model="number1">-
@@ -21,22 +21,22 @@
       <div class="row extent">
         <div class="title">新旧程度：</div>
         <div class="item_row">
-          <div v-for="(item,index) in extentList" :class="{list: true, select: conditionList[2]==item.name ? true : false}" @click="selectExtent(item.name)">{{item.name}}</div>
+          <div v-for="(item,index) in extentList" :class="{list: true, select: conditionList[2].text==item.name ? true : false}" @click="filterCommoditys(item.name,index-1,'extent')">{{item.name}}</div>
         </div>
       </div>
-      <div class="row" v-show="conditionList[0]!='不限'|| conditionList[1]!='不限'|| conditionList[2]!='不限'">
+      <div class="row" v-show="conditionList[0].text!='不限'|| conditionList[1].text!='不限'|| conditionList[2].text!='不限'">
         <div class="title">筛选条件：</div>
         <div class="item_row">
-          <div v-for="(item,index) in conditionList" class="list" v-if="item!='不限'">
-            <div class="selectedCon" @click="deleteCondition(item)">
-              {{item}}
+          <div v-for="(item,index) in conditionList" class="list" v-if="item.text!='不限'">
+            <div class="selectedCon" @click="deleteCondition(item.text)">
+              {{item.text}}
               <icon-svg icon-class="icon-close" class="icon_close" icon-size="15px"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <product-list></product-list>
+    <product-list :shopping-list.sync="shoppingList"></product-list>
     <web-footer class="footer"></web-footer>
   </div>
 </template>
@@ -44,6 +44,7 @@
 <script>
   import ProductList from "../components/Mall/ProductList";
   import WebFooter from "../components/WebFooter";
+  import {getCommodityList,filterCommodity} from "../api";
   export default {
     name: "Mall",
     components: {
@@ -67,9 +68,6 @@
           },
           {
             name: '二手生活'
-          },
-          {
-            name: '二手家电'
           },
           {
             name: '二手家具'
@@ -130,24 +128,75 @@
             name: '7成新及以下'
           }
         ],
-        conditionList: ['不限','不限','不限'],
+        conditionList: [
+          {
+            text: '不限',
+            key: -1
+          },
+          {
+            text: '不限',
+            key: -1
+          },
+          {
+            text: '不限',
+            key: -1
+          },
+        ],
         number1: '',
-        number2: ''
+        number2: '',
+        shoppingList: []
       }
     },
+    created() {
+      this.getDataList()
+    },
     methods: {
-      selectSort(item){
-        this.$set(this.conditionList,0,item)
+      getDataList(){
+        this.shoppingList = [];
+        getCommodityList().then(res => {
+          this.shoppingList = res
+        })
       },
-      selectPrice(item){
-        this.$set(this.conditionList,1,item)
-      },
-      selectExtent(item){
-        this.$set(this.conditionList,2,item)
+      filterCommoditys(item,index,value){
+        if (value == "sort"){
+          //筛选分类
+          this.$set(this.conditionList,0,{text: item,key: index})
+        }else if(value == "price"){
+          //筛选价格
+          this.$set(this.conditionList,1,{text: item,key: index})
+        }else if(value == "extent"){
+          //筛选新旧程度
+          this.$set(this.conditionList,2,{text: item,key: index})
+        }
+        let params = new URLSearchParams();
+        params.append("sort", this.conditionList[0].key);
+        params.append("extent", this.conditionList[2].key);
+        let price;
+        let priceText = this.conditionList[1].text;
+        if(priceText == "不限"){
+          price = "-1"
+        }else if (priceText == "10元以下"){
+          price = "0-10";
+        }else if(priceText == "20元以下"){
+          price = "0-20";
+        }else if(priceText == "50元以下"){
+          price = "0-50";
+        }else if(priceText == "100元以下"){
+          price = "0-100";
+        }else{
+          price = priceText.substring(0,priceText.length-1);
+        }
+        params.append("price", price);
+        console.log("price",price)
+        filterCommodity(params).then(res => {
+          this.shoppingList = [];
+          this.shoppingList = res
+        })
       },
       confirm(){
         if (this.number2 && this.number1){
-          this.$set(this.conditionList,1,this.number1+"-"+this.number2+"元")
+          this.$set(this.conditionList,1,{text: this.number1+"-"+this.number2+"元",key: -1})
+          this.filterCommoditys(this.number1+"-"+this.number2+"元",-1,"qita")
           this.number2=''
           this.number1=''
         }else {
@@ -157,11 +206,11 @@
       deleteCondition(name){
         let num = ''
         this.conditionList.forEach((item,index) => {
-          if(item == name){
+          if(item.text == name){
             num = index
           }
         })
-        this.$set(this.conditionList,num,'不限')
+        this.$set(this.conditionList,num,{text: '不限',key: -1})
       }
     }
   }
