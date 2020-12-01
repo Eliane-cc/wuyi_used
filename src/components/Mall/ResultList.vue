@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <pagination :current-page="currentPage"></pagination>
+    <pagination :current-page.sync="currentPage" :total-commodity="totalCommodity" @changep="changePage"></pagination>
   </div>
 </template>
 
@@ -58,14 +58,26 @@
     data(){
       return{
         currenHeader: '综合排序',
-        currentPage: 1
+        currentPage: 1,
+        totalCommodity: 20,
+        shop: this.shoppingList
       }
+    },
+    created() {
+      this.getDataList()
     },
     methods: {
       changeHeader(header){
         if (this.currenHeader != header){
           this.currenHeader = header
         }
+      },
+      getDataList(){
+          this.totalCommodity = this.shop.length
+          // this.shoppingList = res
+          this.shoppingList = this.shop.filter((item,index) => {
+            return index >= (this.currentPage-1)*12 && index < this.currentPage*12
+          })
       },
       collect(item,index){
         if (item.iscollect){
@@ -77,6 +89,10 @@
           //收藏
           this.shoppingList[index].iscollect = !item.iscollect
         }
+      },
+      changePage(value){
+        this.currentPage = value
+        this.getDataList();
       }
     }
   }

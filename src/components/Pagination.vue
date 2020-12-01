@@ -14,9 +14,9 @@
       </div>
       <div class="flex_row page_to">
         <div class="to">到第</div>
-        <input type="number" class="input_page"/>
+        <input type="number" class="input_page" v-model="page"/>
         <div class="to">页</div>
-        <div class="sure">确定</div>
+        <div class="sure" @click="toPage">确定</div>
       </div>
     </div>
   </div>
@@ -31,26 +31,56 @@
         type: Number,
         required: true
       },
+      totalCommodity: {
+        type: Number,
+        required: true
+      }
     },
     data(){
       return{
-        total: parseInt(50/16),
+        total: 0,
+        page: ''
+      }
+    },
+    created(){
+      this.dataLoad()
+    },
+    // created() {
+    //   this.total = Math.ceil(parseInt(this.totalCommodity.length)/12)
+    // },
+    watch: {
+      "totalCommodity"(newVal, oldVal) {
+        this.total = Math.ceil(parseInt(newVal)/12)
       }
     },
     methods:{
+      dataLoad(){
+        this.total = Math.ceil(parseInt(this.totalCommodity)/12)
+      },
       changePage(index){
         this.currentPage = index
+        this.$emit('changep',this.currentPage)
       },
       prePage(){
         if (this.currentPage != 1) {
           this.currentPage = this.currentPage - 1
+          this.$emit('changep',this.currentPage)
         }
       },
       nextPage(){
         if (this.currentPage != this.total) {
           this.currentPage = this.currentPage + 1
+          this.$emit('changep',this.currentPage)
         }
       },
+      toPage(){
+        if(this.page < this.total){
+          this.currentPage = this.page
+          this.$emit('changep',this.currentPage)
+        }else{
+          this.$message.show("对不起，您搜索的页面不存在", 'icon-info-circle-fill', '#42B782');
+        }
+      }
     }
   }
 </script>
@@ -121,5 +151,6 @@
     color: #ffffff;
     font-size: 14px;
     margin-left: 15px;
+    cursor: pointer;
   }
 </style>
