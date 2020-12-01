@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <product-list></product-list>
+    <product-list :shopping-list="shoppingList"></product-list>
     <web-footer class="footer"></web-footer>
   </div>
 </template>
@@ -44,6 +44,7 @@
 <script>
   import ProductList from "../components/Mall/ProductList";
   import WebFooter from "../components/WebFooter";
+  import {getCommodityList} from "../api";
   export default {
     name: "Mall",
     components: {
@@ -132,10 +133,21 @@
         ],
         conditionList: ['不限','不限','不限'],
         number1: '',
-        number2: ''
+        number2: '',
+        shoppingList: []
       }
     },
+    created() {
+      this.getDataList()
+    },
     methods: {
+      getDataList(){
+        this.shoppingList = [];
+        getCommodityList().then(res => {
+          console.log("res",res)
+          this.shoppingList = res
+        })
+      },
       selectSort(item){
         this.$set(this.conditionList,0,item)
       },

@@ -46,7 +46,6 @@
 </template>
 
 <script>
-  import {getCommodityList} from "../../api";
   import Pagination from "../Pagination";
   import {mixin} from "../../mixins";
   export default {
@@ -55,133 +54,14 @@
     components: {
       Pagination
     },
+    props: ['shoppingList'],
     data(){
       return{
         currenHeader: '综合排序',
         currentPage: 1,
-        shoppingList: [
-          // {
-          //   source: require('@/assets/img/pic1.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: true
-          // },
-          // {
-          //   source: require('@/assets/img/pic6.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic2.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic3.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic7.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic8.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic6.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic2.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic3.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic7.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic8.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // },
-          // {
-          //   source: require('@/assets/img/pic8.png'),
-          //   price: '45.0',
-          //   extent: '9成新',
-          //   title: '2020新款秋冬款开衫毛衣女短款外搭加厚上衣宽松外穿针织衫小外套短款外搭加厚上衣宽松外穿针织衫小外套',
-          //   publisher: '苏奕娜',
-          //   releaseTime: '2020-11-19',
-          //   iscollect: false
-          // }
-        ]
       }
     },
-    created() {
-      this.getDataList()
-    },
     methods: {
-      getDataList(){
-        this.shoppingList = [];
-        getCommodityList().then(res => {
-          console.log("res",res)
-          this.shoppingList = res
-        })
-      },
       changeHeader(header){
         if (this.currenHeader != header){
           this.currenHeader = header
