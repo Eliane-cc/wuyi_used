@@ -24,7 +24,7 @@
                    <div ><button class="li" @click="goTo_record">购物记录</button></div>
                     <div ><button class="li" @click="goTo_publish">我发布的</button></div>
                     <div ><button class="li" @click="goTo_collect">收藏夹</button></div>
-                    <div ><button class="li">关于</button></div>
+                    <div ><button class="li" @click="goTo_about">关于</button></div>
                     <div ><button class="li">设置</button></div>
                     <div ><button class="li">退出登录</button></div>
                 </div>
@@ -70,6 +70,10 @@
             goTo_collect() {
                 //直接跳转
                 this.$router.push('/collect_goods');
+            },
+            goTo_about() {
+                //直接跳转
+                this.$router.push('/about');
             },
 
         }

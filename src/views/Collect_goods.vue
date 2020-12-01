@@ -4,8 +4,6 @@
             <img src="@/assets/img/images/collect.png" alt="">
             <button class="btn1">宝贝收藏</button>
                 <button class="button" @click='goTo()'>卖家收藏</button>
-
-
         </div>
         <div class="content">
             <div class="recordgoods" @click="go()"><img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
@@ -16,7 +14,6 @@
             <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
             <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
             <div class="recordgoods" @click="go()"> <img src="@/assets/img/images/goods4.jpg" alt=""><a href="">宜家大鲨鱼玩偶<span>$70</span></a></div>
-
         </div>
 
 <div><web-footer></web-footer></div>

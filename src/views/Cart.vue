@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="header">
-
         <img src="@/assets/img/images/cart.png" alt="">
        SHOPPING CART
     </div>
@@ -127,6 +126,8 @@
             WebFooter
         },
         methods: {
+
+
             goTo() {
                 //直接跳转
                 this.$router.push('/afford');
@@ -134,19 +135,20 @@
         }
 
     }
+
     window.onload = function () {
-        var oListNumber = document.getElementsByClassName('add').length;
-        var oAdds = document.getElementsByClassName('add');
-        var oDecs = document.getElementsByClassName('dec');
-        var oDels = document.getElementsByClassName('del');
-        var oInputs = document.getElementsByTagName('input');
-        var oAllChecked = false ;//全选
-        var othercheckbox = 0 ;//除了全选以外的其他checkbox
+        let oListNumber = document.getElementsByClassName('add').length;
+        let oAdds = document.getElementsByClassName('add');
+        let oDecs = document.getElementsByClassName('dec');
+        let oDels = document.getElementsByClassName('del');
+        let oInputs = document.getElementsByTagName('input');
+        let oAllChecked = false ;//全选
+        let othercheckbox = 0 ;//除了全选以外的其他checkbox
 
         changeMoney();
 
         // checkbox点击事件
-        for (var i = 0; i < oInputs.length; i++) {
+        for (let i = 0; i < oInputs.length; i++) {
             oInputs[i].onclick = function () {
                 // 判断除了全选以外的checkbox
                 if (i != 0) {
@@ -165,7 +167,7 @@
                 //判断是否选择了全选checkbox
                 if (i == 0) {
                     oAllChecked = !oAllChecked;
-                    for (var j = 0; j < oInputs.length; j++) {
+                    for (let j = 0; j < oInputs.length; j++) {
                         oInputs[j].checked = oAllChecked;
                     }
                     if (oAllChecked) {
@@ -177,11 +179,8 @@
                 changeTotal();
             }
         }
-
-
-
         // add事件
-        for (var i = 0; i < oAdds.length; i++) {
+        for (let i = 0; i < oAdds.length; i++) {
             oAdds[i].onclick = function () {
                 this.nextElementSibling.innerText =
                     parseInt(this.nextElementSibling.innerText) + 1;
@@ -191,7 +190,7 @@
         }
 
         // dec事件
-        for (var i = 0; i < oDecs.length; i++) {
+        for (let i = 0; i < oDecs.length; i++) {
             oDecs[i].onclick = function () {
                 if (this.previousElementSibling.innerText != '0') {
                     this.previousElementSibling.innerText =
@@ -204,13 +203,13 @@
 
         // add事件和dec事件伴随的金额改变事件
         function changeMoney() {
-            var oListNumber = document.getElementsByClassName('add').length;
-            var oNums = document.getElementsByClassName('num');
-            var oMoneys = document.getElementsByClassName('money');
-            var oPers = document.getElementsByClassName('per');
-            var oPerSpan = [] ;//单价
-            var oMoneySpan = []; //金额
-            for (var i = 0; i < oListNumber; i++) {
+            let oListNumber = document.getElementsByClassName('add').length;
+            let oNums = document.getElementsByClassName('num');
+            let oMoneys = document.getElementsByClassName('money');
+            let oPers = document.getElementsByClassName('per');
+            let oPerSpan = [] ;//单价
+            let oMoneySpan = []; //金额
+            for (let i = 0; i < oListNumber; i++) {
                 oPerSpan[i] = oPers[i].getElementsByTagName('span')[0].innerText;
                 oMoneySpan[i] = oMoneys[i].getElementsByTagName('span')[0];
                 oMoneySpan[i].innerText =
@@ -220,10 +219,10 @@
         }
 
         // del事件
-        for (var i = 0; i < oDels.length; i++) {
+        for (let i = 0; i < oDels.length; i++) {
             oDels[i].onclick = function () {
-                var thisdom = this.parentNode.parentNode;
-                var tbody = thisdom.parentNode;
+                let thisdom = this.parentNode.parentNode;
+                let tbody = thisdom.parentNode;
                 tbody.removeChild(thisdom);
                 changeTotal();
             }
@@ -232,15 +231,15 @@
 
         // 总数量 总金额
         function changeTotal() {
-            var oNums = document.getElementsByClassName('num');
-            var oInputs = document.getElementsByTagName('input');
-            var oMoneys = document.getElementsByClassName('money');
-            var oChoosen = document.getElementsByClassName('choosen')[0];
-            var oTotal = document.getElementsByClassName('total')[0];
-            var sumNUM = 0;
-            var sumTOTAL = 0;
+            let oNums = document.getElementsByClassName('num');
+            let oInputs = document.getElementsByTagName('input');
+            let oMoneys = document.getElementsByClassName('money');
+            let oChoosen = document.getElementsByClassName('choosen')[0];
+            let oTotal = document.getElementsByClassName('total')[0];
+            let sumNUM = 0;
+            let sumTOTAL = 0;
 
-            for (var i = 0; i < oInputs.length; i++) {
+            for (let i = 0; i < oInputs.length; i++) {
                 if (oInputs[i].checked) {
                     sumNUM = parseFloat(oNums[i - 1].innerText) + parseFloat(sumNUM);
                     sumTOTAL =
@@ -273,7 +272,6 @@
         width: 100%;
         height: 80px;
         background: #349B5E;
-
         color: #EEEE00;
         font-family: Arial;
 
@@ -296,7 +294,6 @@
     table tr {
         height: 150px;
         /*line-height: 100px;*/
-
     }
     table th:nth-child(1) {
         width: 50px;
@@ -306,7 +303,6 @@
     }
     table th:nth-child(3) {
         width: 250px;
-
     }
     table th:nth-child(4) {
         width: 180px;
